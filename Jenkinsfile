@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'agent1' }
 
     tools {
         // Run the Maven installation named "3.8.7" and add it to the path.
@@ -26,7 +26,6 @@ pipeline {
         stage('test') {
             steps {
                 echo 'starting test.....'
-                // sh 'mvn test'
                 sh 'mvn surefire:test'
                 echo 'finished test'
             }
